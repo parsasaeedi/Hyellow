@@ -35,21 +35,47 @@ Session(app)
 # Index
 @app.route("/", methods=["GET", "POST"])
 def index():
-    # Write code here
-    # return render_template("index.html")
-    return "Hello"
+    return render_template("index.html")
 
 
-@app.route("/questionnaireMBTI")
-def questionnaire():
+# login
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+
+
+# signup
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "GET":
+        return render_template("signup.html")
+
+
+# MBTI
+@app.route("/questionnaire/1")
+def MBTI():
     MBTI_questions = [
         "After a tiring weekend you recharge by being with people instead of being by yourself",
         "Instead of thinking about present details, you'd rather think of future possibilities",
         "You analyze the problem to make decisions instead of just trusting your gut",
         "You'd rather plan your birthday compared to celebrating it spontaneously"]
+    test = "MBTI"
     if request.method == "GET":
-        return render_template("questionnaireMBTI.html", MBTI_questions = MBTI_questions)
+        return render_template("questionnaireMBTI.html", questions = MBTI_questions, test = test)
     # add else statement if method == 'post' and return value of the personality type etc.
+
+
+# acouplemorethings
+@app.route("/acouplemorethings")
+def acouplemorethings():
+    return render_template("acouplemorethings.html")
+
+
+# seehowitworks
+@app.route("/seehowitworks")
+def seehowitworks():
+    return render_template("seehowitworks.html")
 
 
 if __name__ == "__main__":
