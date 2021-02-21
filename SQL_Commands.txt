@@ -1,32 +1,43 @@
-CREATE TABLE users (
-    id int,
-    firstName TEXT,
-    lastName TEXT,
-    email TEXT,
-    password TEXT,
-    age INT,
-    birthday DATE,
-    sex TEXT,
-    sexuallity TEXT,
-    location TEXT,
-    MBTI TEXT,
-    education TEXT,
-    school TEXT,
-    job TEXT,
-    workingPlace TEXT,
-    height int,
-    bodyType TEXT,
-    ethnicitiy TEXT,
-    religion TEXT,
-    AstroSign TEXT,
-    PoliticalView TEXT
-    verified BOOLEAN,
-    phoneNumber TEXT,
-    instagram TEXT,
-    snapchat TEXT,
-    twitter TEXT,
-    discord TEXT,
-    Spotify TEXT,
-    tiktok TEXT,
-    github TEXT
+CREATE TABLE 'users' (
+    'id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    'firstName' TEXT NOT NULL,
+    'lastName' TEXT NOT NULL,
+    'email' TEXT NOT NULL,
+    'password' TEXT NOT NULL,
+    'age' INTEGER,
+    'birthday' DATE
 );
+
+CREATE TABLE 'attributes' (
+    'id' INTEGER NOT NULL,
+    'sex' TEXT,
+    'sexuallity' TEXT,
+    'city' TEXT,
+    'country' TEXT,
+    'MBTI' TEXT,
+    'education' TEXT,
+    'school' TEXT,
+    'job' TEXT,
+    'height' int,
+    'bodyType' TEXT,
+    'ethnicitiy' TEXT,
+    'religion' TEXT,
+    'astroSign' TEXT,
+    'politicalView' TEXT,
+    'verified' BOOLEAN
+);
+
+CREATE TABLE 'media' (
+    'id' INTEGER NOT NULL,
+    'phoneNumber' TEXT,
+    'instagram' TEXT,
+    'snapchat' TEXT,
+    'twitter' TEXT,
+    'discord' TEXT,
+    'Spotify' TEXT,
+    'tiktok' TEXT,
+    'github' TEXT
+);
+
+INSERT INTO users (firstName, lastName, email, password, age, birthday)
+VALUES ('Parsa', 'Saeedi', 'psaeedi1381@gmail.com', '12345678', 18, '2002-09-17');
