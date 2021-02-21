@@ -3,8 +3,66 @@ body{
     color: #EBEBEB;
     font-family: "Montserrat", sans-serif;
 }
-table{
-    width: 100%;
-    vertical-align: center;
+#question h1{
+    font-size: 2vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0;
+}
+#header h1{
+    font-size: 3vw;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid transparent;
+    padding: 10px;
+    vertical-align: middle;
     text-align: center;
+}
+.slider{
+    margin: auto;
+    width: 90%;
+    border: 0;
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: inline-block;
+    padding-bottom: 3vw;
+    margin-bottom: 3vw;
+
+}
+.slider h2,.slider input{
+    display: inline-block;
+    border: 0;
+    vertical-align: middle;
+}
+.slider input{
+    width: 60%;
+    background: transparent;
+}
+.slider h2{
+    margin: 0,10px;
+    padding: 0 20px;
+    white-space: pre-wrap;
+    width:8vw;
+    font-size: 2vw;
+}
+input[type=submit]{
+    width: 100%;
+    padding: 1.2vw 1.4vw;
+    margin-bottom: 0.8vw;
+    margin-right: 5px;
+    box-sizing: border-box;
+    background-color: #343232;
+    color: #EBEBEB;
+    border-style: none;
+    border-radius: 50px;
+    margin-top: 10px;
+    width: 20%;
+    font-size: 1.3vw;
+    float: right;
+}
+input[type=submit]:hover{
+    background-color: #f8bb3f;
+    color: #7D7878;
 }
