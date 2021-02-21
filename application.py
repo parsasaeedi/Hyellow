@@ -202,8 +202,9 @@ def aCoupleMoreThings():
         religion = request.form.get("religion")
         politicalView = request.form.get("politicalView")
 
-        db.execute("INSERT INTO attributes (id, education, school, major, job, height, bodyType, ethnicity, religion, politicalView) VALUES (:id, :education, :school, :major, :job, :height, :bodyType, :ethnicity, :religion, :politicalView)", id=session["user_id"], education=education, school=school, major=major, job=job, height=height, bodyType=bodyType, ethnicity=ethnicity, religion=religion, politicalView=politicalView)
-        return redirect('/MBTI_1')
+        # db.execute("INSERT INTO attributes (id, education, school, major, job, height, bodyType, ethnicity, religion, politicalView) VALUES (:id, :education, :school, :major, :job, :height, :bodyType, :ethnicity, :religion, :politicalView)", id=session["user_id"], education=education, school=school, major=major, job=job, height=height, bodyType=bodyType, ethnicity=ethnicity, religion=religion, politicalView=politicalView)
+        db.execute("INSERT INTO attributes (id, education, school, job, height, bodyType, ethnicitiy, religion, politicalView) VALUES (:id, :education, :school, :job, :height, :bodyType, :ethnicity, :religion, :politicalView)", id=session["user_id"], education=education, school=school, job=job, height=height, bodyType=bodyType, ethnicity=ethnicity, religion=religion, politicalView=politicalView)
+        return redirect("/questionnaireMBTI/1")
 
 
 # seehowitworks
@@ -215,6 +216,7 @@ def seehowitworks():
 @app.route("/swipe", methods=["GET", "POST"])
 def swipe():
     if request.method == "GET":
+        
         return render_template("swipe.html")
     # Code here
 

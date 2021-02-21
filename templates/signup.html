@@ -22,11 +22,11 @@
 <!--    {% if error != None %}-->
 <!--        <div class="error"><p>{{error}}</p></div>-->
 <!--    {% endif %}-->
-    <form action=/signup method="post" id="login">
-    <table>
-        <tr>
-            <th>Sign Up</th>
-        </tr>
+    <form action="/signup" method="post" id="login">
+        <table>
+            <tr>
+                <th>Sign Up</th>
+            </tr>
             <tr>
                 <td>
                     <input type="text" name="firstName" placeholder="First Name" form="login" required>
@@ -48,7 +48,7 @@
                 <!-- <td colspan="2"><input type="submit" form="login" onclick="return Validate()" /></td> -->
                 <td colspan="2"><input type="submit" form="login"></td>
             </tr>
-    </table>
+        </table>
     </form>
 </body>
 </html>

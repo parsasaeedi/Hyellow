@@ -20,7 +20,7 @@ CREATE TABLE 'attributes' (
     'job' TEXT,
     'height' int,
     'bodyType' TEXT,
-    'ethnicitiy' TEXT,
+    'ethnicity' TEXT,
     'religion' TEXT,
     'astroSign' TEXT,
     'politicalView' TEXT,
