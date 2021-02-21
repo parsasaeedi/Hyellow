@@ -31,6 +31,15 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///hyellow.db")
 
+# SQL fill
+@app.route("/sqlFill")
+def sqlFill():
+    
+    # db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:firstName, :lastName, :email, :password)", firstName=firstName, lastName=lastName,
+    #                     email=email, password=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
+    db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (”Ali”,”Sakhirani”,”Ali.Sakhirani@gmail.com”,”tLjbSjmR2”")
+    
+    return render_template('error.html', error="Success")
 
 # Index
 @app.route("/", methods=["GET", "POST"])
@@ -79,19 +88,19 @@ def signup():
         return render_template('signup.html')
     else:
         # Ensure a first name was submitted
-        if not request.form.get("first"):
+        if not request.form.get("firstName"):
             return render_template('error.html', error="Must provide a first name")
-        elif not request.form.get("last"):
+        elif not request.form.get("lastName"):
             return render_template('error.html', error="Must provide a last name")
         elif not request.form.get("email"):
             return render_template('error.html', error="Must provide an email address")
-        elif not request.form.get("passworc"):
+        elif not request.form.get("password"):
             return render_template('error.html', error="Must provide a password")
         elif not request.form.get("confirmation"):
             return render_template('error.html', error="Must confirm your password")
 
-        first = request.form.get("first")
-        last = request.form.get("last")
+        firstName = request.form.get("firstName")
+        lastName = request.form.get("lastName")
         email = request.form.get("email")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
@@ -106,8 +115,8 @@ def signup():
         if len(emails_in_database) != 0:
             return render_template('error.html', error="There is already an account with this email address")
         else:
-            db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:first, :last, :email, :pasword)", firstName=firstName, lastName=lastName,
-                        email=email, hash=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
+            db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:firstName, :lastName, :email, :password)", firstName=firstName, lastName=lastName,
+                        email=email, password=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
         
         # Query database for username
         account = db.execute("SELECT * FROM users WHERE email = :email",
@@ -117,7 +126,7 @@ def signup():
         session["user_id"] = account[0]["id"]
         
         # Redirect user to the swipe page
-        return redirect(url_for('/sqipe'))
+        return redirect('/swipe')
 
 
 # MBTI
@@ -192,9 +201,7 @@ def seehowitworks():
 def swipe():
     if request.method == "GET":
         return render_template("swipe.html")
-    else {
-        #Code here
-    }
+    # Code here
 
 
 
