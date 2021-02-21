@@ -216,8 +216,18 @@ def seehowitworks():
 @app.route("/swipe", methods=["GET", "POST"])
 def swipe():
     if request.method == "GET":
-        
-        return render_template("swipe.html")
+        userInfo = db.execute("SELECT id AS userId, firstName FROM users ORDER BY RANDOM() LIMIT 1")
+        userId = userInfo[0]['userId']
+        firstName = userInfo[0]['firstName']
+        print(userId)
+        userAttributes = db.execute("SELECT age, city, country, MBTI, astroSign FROM attributes WHERE id=:userId", userId=userId)
+        age = userAttributes[0]['age']
+        city = userAttributes[0]['city']
+        country = userAttributes[0]['country']
+        MBTI = userAttributes[0]['MBTI']
+        astroSign = userAttributes[0]['astroSign']
+        attributesList = {'userId':userId, 'firstName':firstName, 'age':age, 'city':city, 'country':country, 'MBTI':MBTI, 'astroSign':astroSign}
+        return render_template("swipe.html", attributesList=attributesList)
     # Code here
 
 
