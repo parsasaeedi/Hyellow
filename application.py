@@ -70,7 +70,7 @@ def MBTI_1():
     if request.method == "GET":
         return render_template("MBTI_1.html", questions = MBTI_questions, test = test)
     else:
-        answer = request.form.get('answer')
+        answer = request.form.get("answer")
         MBTI.append(answer)
         print(MBTI)
         return redirect(url_for('MBTI_2')) # change this index to somewhere else
@@ -82,8 +82,8 @@ def MBTI_2():
     if request.method == "GET":
         return render_template("MBTI_2.html")
     else:
-        answer = request.form.get('answer')
-        MBTI.append(answer)
+        answer1 = request.form.get("answer")
+        MBTI.append(answer1)
         print(MBTI)
         return redirect(url_for('MBTI_3')) # change this index to somewhere else
     # add else statement if method == 'post' and return value of the personality type etc.
@@ -94,7 +94,7 @@ def MBTI_3():
     if request.method == "GET":
         return render_template("MBTI_3.html")
     else:
-        answer = request.form.get('answer')
+        answer = request.form.get("answer")
         MBTI.append(answer)
         print(MBTI)
         return redirect(url_for('MBTI_4')) # change this index to somewhere else
@@ -106,7 +106,7 @@ def MBTI_4():
     if request.method == "GET":
         return render_template("MBTI_4.html")
     else:
-        answer = request.form.get('answer')
+        answer = request.form.get("answer")
         MBTI.append(answer)
         print(MBTI)
         return redirect(url_for('index')) # change this index to somewhere else
