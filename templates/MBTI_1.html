@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Questionnaire{{test}}</title>
+    <title>QuestionnaireMBTI</title>
     <link rel="stylesheet" href="../static/slider.css">
     <link rel="stylesheet" href="../static/style_questionnaire.css">
     <script>
@@ -20,19 +20,18 @@
     </script>
 </head>
 <body>
-<form action=database_somewhere method="post" id="MBTI"></form>
-<div class="center" id="header"><h1>{{test}} Test</h1></div>
-{%- for question in questions -%}
-<div class="center" id="question"><h1>{{question}}</h1></div>
+<form action="/questionnaireMBTI/1" method="post" id="MBTI">
+<div class="center" id="header"><h1>MBTI Test</h1></div>
+<div class="center" id="question"><h1>"After a tiring weekend you recharge by being with people instead of being by yourself"</h1></div>
 <div class="slider">
     <h2>Strongly Disagree</h2>
-    <input type="range" min="-1" max="1" value="0" name="myRange" id="{{loop.index0}}" onchange="updateTextInput(this.value);">
+    <input type="range" min="-1" max="1" value="0" id="textInput" name="answer" onchange="updateTextInput(this.value);">
     <h2>Strongly Agree</h2>
 </div>
-{%- endfor -%}
 <div>
-    <input type="submit" form="MBTI" value="Next Page" onclick="evaluate()">
+    <input type="submit" form="MBTI" value="Next Page">
 <!--    <input type="text" name="answers" id="ans"> to retrieve data from python-->
 </div>
+</form>
 </body>
 </html>

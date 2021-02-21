@@ -121,8 +121,9 @@ def signup():
 
 
 # MBTI
-@app.route("/questionnaire/1")
-def MBTI():
+MBTI = []
+@app.route("/questionnaireMBTI/1", methods=["GET", "POST"])
+def MBTI_1():
     MBTI_questions = [
         "After a tiring weekend you recharge by being with people instead of being by yourself",
         "Instead of thinking about present details, you'd rather think of future possibilities",
@@ -130,7 +131,48 @@ def MBTI():
         "You'd rather plan your birthday compared to celebrating it spontaneously"]
     test = "MBTI"
     if request.method == "GET":
-        return render_template("questionnaireMBTI.html", questions = MBTI_questions, test = test)
+        return render_template("MBTI_1.html", questions = MBTI_questions, test = test)
+    else:
+        answer = request.form.get("answer")
+        MBTI.append(answer)
+        print(MBTI)
+        return redirect(url_for('MBTI_2')) # change this index to somewhere else
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+@app.route("/questionnaireMBTI/2", methods=["GET", "POST"])
+def MBTI_2():
+    if request.method == "GET":
+        return render_template("MBTI_2.html")
+    else:
+        answer1 = request.form.get("answer")
+        MBTI.append(answer1)
+        print(MBTI)
+        return redirect(url_for('MBTI_3')) # change this index to somewhere else
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+@app.route("/questionnaireMBTI/3", methods=["GET", "POST"])
+def MBTI_3():
+    if request.method == "GET":
+        return render_template("MBTI_3.html")
+    else:
+        answer = request.form.get("answer")
+        MBTI.append(answer)
+        print(MBTI)
+        return redirect(url_for('MBTI_4')) # change this index to somewhere else
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+@app.route("/questionnaireMBTI/4", methods=["GET", "POST"])
+def MBTI_4():
+    if request.method == "GET":
+        return render_template("MBTI_4.html")
+    else:
+        answer = request.form.get("answer")
+        MBTI.append(answer)
+        print(MBTI)
+        return redirect(url_for('index')) # change this index to somewhere else
     # add else statement if method == 'post' and return value of the personality type etc.
 
 
