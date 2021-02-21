@@ -29,32 +29,95 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-# db = SQL("sqlite:///speedtyping.db")
+db = SQL("sqlite:///hyellow.db")
 
 
 # Index
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
+        
 
 
 # login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
+    # Forget any user_id
+    session.clear()
+
     if request.method == "GET":
         return render_template("login.html")
+    else:
+        # Ensure email was submitted
+        if not request.form.get("email"):
+            return render_template('error.html', error="must provide email")
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return render_template('error.html', error="must provide password")
+
+        # Query database for email
+        emails_in_database = db.execute("SELECT * FROM users WHERE LOWER(email) == LOWER(:email)",
+                          username=request.form.get("email"))
+
+        # Ensure username exists and password is correct
+        if len(emails_in_database) != 1 or not check_password_hash(emails_in_database[0]["hash"], request.form.get("password")):
+            return render_template('error.html', error="invalid email and/or password")
+
+        # Remember which user has logged in
+        session["user_id"] = emails_in_database[0]["id"]
+
+        # Redirect user to home page
+        return redirect("/swipe")
 
 
 # signup
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    error = None
-    if request.method == 'POST':
-        if request.form['password'] != request.form['confirm_password']:
-            error = 'Password does not match!'
+    if request.method == 'GET':
+        return render_template('signup.html')
+    else:
+        # Ensure a first name was submitted
+        if not request.form.get("first"):
+            return render_template('error.html', error="Must provide a first name")
+        elif not request.form.get("last"):
+            return render_template('error.html', error="Must provide a last name")
+        elif not request.form.get("email"):
+            return render_template('error.html', error="Must provide an email address")
+        elif not request.form.get("passworc"):
+            return render_template('error.html', error="Must provide a password")
+        elif not request.form.get("confirmation"):
+            return render_template('error.html', error="Must confirm your password")
+
+        first = request.form.get("first")
+        last = request.form.get("last")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+            
+        if password != confirmation:
+            return render_template('error.html', error="Password doesn't match")
+
+        # Query the databse for the accounts with that email
+        emails_in_database = db.execute("SELECT email FROM users WHERE email = :email",
+                          email=email)
+
+        if len(emails_in_database) != 0:
+            return render_template('error.html', error="There is already an account with this email address")
         else:
-            return redirect(url_for('index'))
-    return render_template('signup.html', error=error)
+            db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:first, :last, :email, :pasword)", firstName=firstName, lastName=lastName,
+                        email=email, hash=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
+        
+        # Query database for username
+        account = db.execute("SELECT * FROM users WHERE email = :email",
+                          email=email)
+
+        # Remember which user has logged in
+        session["user_id"] = account[0]["id"]
+        
+        # Redirect user to the swipe page
+        return redirect(url_for('/sqipe'))
 
 
 # MBTI
@@ -81,6 +144,16 @@ def acouplemorethings():
 @app.route("/seehowitworks")
 def seehowitworks():
     return render_template("seehowitworks.html")
+
+# Swipe
+@app.route("/swipe", methods=["GET", "POST"])
+def swipe():
+    if request.method == "GET":
+        return render_template("swipe.html")
+    else {
+        #Code here
+    }
+
 
 
 if __name__ == "__main__":
