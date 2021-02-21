@@ -42,7 +42,11 @@ def index():
 
 @app.route("/questionnaireMBTI")
 def questionnaire():
-    MBTI_questions = ["a", "b", "c", "d"]
+    MBTI_questions = [
+        "After a tiring weekend you recharge by being with people instead of being by yourself",
+        "Instead of thinking about present details, you'd rather think of future possibilities",
+        "You analyze the problem to make decisions instead of just trusting your gut",
+        "You'd rather plan your birthday compared to celebrating it spontaneously"]
     if request.method == "GET":
         return render_template("questionnaireMBTI.html", MBTI_questions = MBTI_questions)
     # add else statement if method == 'post' and return value of the personality type etc.
