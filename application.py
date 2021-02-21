@@ -66,5 +66,21 @@ def MBTI():
     # add else statement if method == 'post' and return value of the personality type etc.
 
 
+# acouplemorethings
+@app.route("/acouplemorethings")
+def signup():
+    return render_template("acouplemorethings.html")
+
+
+# seehowitworks
+@app.route("/seehowitworks")
+def signup():
+    return render_template("seehowitworks.html")
+
+
+
+
+
+
 if __name__ == "__main__":
     app.run()
