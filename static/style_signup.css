@@ -46,3 +46,12 @@ input[type=submit]:hover{
 textarea:focus, input:focus{
     outline: none;
 }
+.error{
+    margin-bottom: 0.3vw;
+    white-space: nowrap;
+    font-size: 2vw;
+    height: 2vw;
+    line-height: 2vw;
+    text-align: center;
+    color: #800000;
+}

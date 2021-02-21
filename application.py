@@ -48,8 +48,13 @@ def login():
 # signup
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    if request.method == "GET":
-        return render_template("signup.html")
+    error = None
+    if request.method == 'POST':
+        if request.form['password'] != request.form['confirm_password']:
+            error = 'Password does not match!'
+        else:
+            return redirect(url_for('index'))
+    return render_template('signup.html', error=error)
 
 
 # MBTI
