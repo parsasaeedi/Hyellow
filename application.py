@@ -126,7 +126,7 @@ def signup():
         session["user_id"] = account[0]["id"]
         
         # Redirect user to the swipe page
-        return redirect('/swipe')
+        return redirect('/aCoupleMoreThings')
 
 
 # MBTI
@@ -181,18 +181,33 @@ def MBTI_4():
         answer = request.form.get("answer")
         MBTI.append(answer)
         print(MBTI)
-        return redirect(url_for('index')) # change this index to somewhere else
+        return redirect("/swipe") # change this index to somewhere else
     # add else statement if method == 'post' and return value of the personality type etc.
 
 
 # acouplemorethings
-@app.route("/acouplemorethings")
-def acouplemorethings():
-    return render_template("acouplemorethings.html")
+@app.route("/aCoupleMoreThings", methods=["GET", "POST"])
+def aCoupleMoreThings():
+    if request.method == "GET":
+        return render_template("acouplemorethings.html")
+    else:
+        # Ensure a first name was submitted
+        education = request.form.get("education")
+        school = request.form.get("school")
+        major = request.form.get("major")
+        job = request.form.get("job")
+        height = request.form.get("height")
+        bodyType = request.form.get("bodyType")
+        ethnicity = request.form.get("ethnicity")
+        religion = request.form.get("religion")
+        politicalView = request.form.get("politicalView")
+
+        db.execute("INSERT INTO attributes (id, education, school, major, job, height, bodyType, ethnicity, religion, politicalView) VALUES (:id, :education, :school, :major, :job, :height, :bodyType, :ethnicity, :religion, :politicalView)", id=session["user_id"], education=education, school=school, major=major, job=job, height=height, bodyType=bodyType, ethnicity=ethnicity, religion=religion, politicalView=politicalView)
+        return redirect('/MBTI_1')
 
 
 # seehowitworks
-@app.route("/seehowitworks")
+@app.route("/seehowitworks", methods=["GET", "POST"])
 def seehowitworks():
     return render_template("seehowitworks.html")
 
