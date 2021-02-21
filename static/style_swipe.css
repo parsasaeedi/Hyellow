@@ -1,0 +1,259 @@
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #1F1E1E;
+    color: #ebebeb;
+}
+
+nav {
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+}
+
+nav img, nav div {
+    display: inline-block;
+}
+
+.myProfilePicture {
+    float: left;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.myProfilePicture img {
+
+}
+
+.logo {
+    /* margin: 0 auto; */
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #faff00;
+}
+
+.logo img {
+    height: 2rem;
+    width: auto;
+}
+
+.setting {
+    float: right;
+}
+
+.logo img, .logo h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+body div {
+    display: inline-block;
+}
+
+/* Messages */
+
+.matches {
+    position: absolute;
+    float: left;
+    left: 1rem;
+    height: 100%;
+    /* border-right: #343232;
+    border-right-width: 0.2em;
+    border-right-style: solid; */
+}
+
+.matches div {
+    display: block;
+}
+
+.matchTitle h2, .matchTitle svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.matchedProfile img, .matchedProfile h3 {
+    display: inline;
+    vertical-align: middle;
+}
+
+.matchedProfile h3 {
+    margin-left: 1rem;
+}
+
+.matchedProfile {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: #343232;
+    border-bottom-width: 0.2em;
+    border-bottom-style: solid;
+}
+
+.matchedProfile img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border-width: 0.3em;
+    border-color: #faff00;
+    border-style: solid;
+}
+
+/* Matching Area */
+
+.info div {
+    display: block;
+}
+
+.mbtiAndAstro h4, .nameAndAge h1 {
+    display: inline-block;
+}
+
+.nameAndAge h1{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.matchingArea {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 30rem; */
+}
+
+.card {
+    background-color: #343232;
+    border-radius: 3rem; 
+    height: 30rem;
+    width: 50rem;
+}
+
+.cardProfilePicture {
+    width: 40%;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    object-fit: cover;
+}
+
+.info {
+    padding: 3rem;
+    position: fixed;
+    left: 40%;
+}
+
+.mbtiAndAstro img, .mbtiAndAstro h4, .mbtiAndAstro svg{
+    vertical-align: middle;
+}
+
+.mbtiAndAstro {
+    font-weight: 100;
+}
+
+.mbtiAndAstro img {
+    height: 1.4rem;
+    width: auto;
+}
+
+.mbtiAndAstro svg {
+    height: 1rem;
+    width: auto;
+    color: #faff00;
+}
+
+.bio h2 {
+    margin-top: -1.5rem;
+    margin-bottom: -1rem;
+}
+
+.bio h1 {
+    font-family: serif;
+}
+
+.open {
+}
+
+.close {
+    float: right;
+}
+
+.bio {
+    margin-top: 4rem;
+}
+
+.card, .yesOrNo {
+    display: block;
+}
+
+.yesOrNo {
+    position: relative;
+    text-align: center;
+    margin-top: -4rem;
+}
+
+/* .yesOrNo input{
+    margin: 1.5rem;
+    border-radius: 3rem;
+    border-width: 0;
+    vertical-align: middle;
+} */
+
+.yes, .no {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    background-color: #343232;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.yes {
+    color: #468656;
+}
+
+/* .later {
+    background-color: #faff00;
+    height: 5rem;
+    width: 5rem;
+} */
+
+.no {
+    color: #ff1f2e;
+}
+
+/* Right pane */
+
+.rightPane {
+    position: absolute;
+    float: right;
+    right: 3rem;
+    border-left: #343232;
+    height: 100%;
+}
+
+.rightPane h3, .rightPane div {
+    display: block;
+}
+
+.relVsFriend svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.heart, .friend {
+    height: 2.5rem;
+    width: auto;
+}
+
+.toggle {
+    height: 3rem;
+    width: auto;
+}
+
+.relVsFriendText h5 {
+    display: inline-block;
+}
