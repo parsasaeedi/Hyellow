@@ -35,11 +35,24 @@ Session(app)
 # Index
 @app.route("/", methods=["GET", "POST"])
 def index():
-    # Write code here
-    # return render_template("index.html")
-    return "Hello"
+    return render_template("index.html")
 
 
+# login
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+
+
+# signup
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "GET":
+        return render_template("signup.html")
+
+
+# MBTI
 @app.route("/questionnaire/1")
 def MBTI():
     MBTI_questions = [
@@ -50,19 +63,6 @@ def MBTI():
     test = "MBTI"
     if request.method == "GET":
         return render_template("questionnaireMBTI.html", questions = MBTI_questions, test = test)
-    # add else statement if method == 'post' and return value of the personality type etc.
-
-
-@app.route("/questionnaire/2")
-def ColorTest():
-    MBTI_questions = [
-        "After a tiring weekend you recharge by being with people instead of being by yourself",
-        "Instead of thinking about present details, you'd rather think of future possibilities",
-        "You analyze the problem to make decisions instead of just trusting your gut",
-        "You'd rather plan your birthday compared to celebrating it spontaneously"]
-    test = "MBTI"
-    if request.method == "GET":
-        return render_template("questionnaireMBTI.html", questions=MBTI_questions, test=test)
     # add else statement if method == 'post' and return value of the personality type etc.
 
 
