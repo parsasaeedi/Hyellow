@@ -78,9 +78,5 @@ def seehowitworks():
     return render_template("seehowitworks.html")
 
 
-
-
-
-
 if __name__ == "__main__":
     app.run()
