@@ -5,17 +5,18 @@ body{
 table{
     margin: 0 auto;
     width: 40%;
-    margin-top: 6.4vw;
+    margin-top: 8.4vw;
     margin-bottom: 5.5vw;
 }
 th{
     margin-bottom: 0.3vw;
     white-space: nowrap;
-    font-size: 5vw;
+    font-size: 4vw;
     height: 5.1vw;
     line-height: 5.8vw;
     text-align: left;
-    color: #f8bb3f;
+    color: #faff00;
+    margin-bottom: 1rem;
 }
 td{
     text-align: left;
@@ -26,13 +27,14 @@ td{
 input, textarea{
     width: 100%;
     padding: 1.2vw 1.4vw;
-    margin-bottom: 0.8vw;
+    margin-bottom: 0.5vw;
     margin-right: 5px;
     box-sizing: border-box;
     background-color: #343232;
     color: #EBEBEB;
     border-style: none;
     border-radius: 50px;
+    font-size: larger;
 }
 input[type=submit]{
     margin-top: 10px;
@@ -40,9 +42,18 @@ input[type=submit]{
     font-size: 1.3vw;
 }
 input[type=submit]:hover{
-    background-color: #f8bb3f;
-    color: #7D7878;
+    background-color: #faff00;
+    color: #1F1E1E;
 }
 textarea:focus, input:focus{
     outline: none;
+}
+.error{
+    margin-bottom: 0.3vw;
+    white-space: nowrap;
+    font-size: 2vw;
+    height: 2vw;
+    line-height: 2vw;
+    text-align: center;
+    color: #800000;
 }

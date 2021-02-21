@@ -6,6 +6,19 @@
     <title>Questionnaire{{test}}</title>
     <link rel="stylesheet" href="../static/slider.css">
     <link rel="stylesheet" href="../static/style_questionnaire.css">
+    <link rel="icon" href="../static/HyellowIcon.png">
+    <script>
+        function updateTextInput(val) {
+          document.getElementById('textInput').value=val;
+        }
+        function evaluate(){
+            var answers = [];
+            for (var i = 0; i < 4; i++) {
+            answers.push(document.getElementById(i.toString()).value);
+            }
+            document.getElementById('ans').value = answers;
+        }
+    </script>
 </head>
 <body>
 <form action=database_somewhere method="post" id="MBTI"></form>
@@ -14,12 +27,13 @@
 <div class="center" id="question"><h1>{{question}}</h1></div>
 <div class="slider">
     <h2>Strongly Disagree</h2>
-    <input type="range" min="-1" max="1" value="0" id="myRange">
+    <input type="range" min="-1" max="1" value="0" name="myRange" id="{{loop.index0}}" onchange="updateTextInput(this.value);">
     <h2>Strongly Agree</h2>
 </div>
 {%- endfor -%}
 <div>
-    <input type="submit" form="MBTI" value="Next Page">
+    <input type="submit" form="MBTI" value="Next Page" onclick="evaluate()">
+<!--    <input type="text" name="answers" id="ans"> to retrieve data from python-->
 </div>
 </body>
 </html>

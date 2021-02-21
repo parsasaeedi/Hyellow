@@ -4,57 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style_swipe.css">
+    <link rel="icon" href="../static/HyellowIcon.png">
     <title>Document</title>
 </head>
 <body>
     <nav>
-        <img src="" alt="Profile Picture">
-        <div class="Logo">
-            <img src="" alt="Logo">
+        <img src="/static/profilePictures/13.jpg" alt="Profile Picture" class="myProfilePicture">
+        <div class="logo">
+            <img src="/static/Images/HyellowLogo.png" alt="Logo">
             <h1>Hyellow</h1>
         </div>
-        <img src="" alt="Setting">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-sliders setting" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
+          </svg>
+        <!-- <img src="" alt="Setting" class="setting"> -->
     </nav>
     <div>
         <div class="matches">
             <div class="matchTitle">
                 <h2>Matches</h2>
-                <img src="" alt="Message Button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                    <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                  </svg>
             </div>
             <div class="profiles">
                 <div class="matchedProfile">
-                    <img src="" alt="MatchedProfilePicture">
-                    <h3>Profile 1</h3>
+                    <img src="/static/profilePictures/53.jpg" alt="MatchedProfilePicture">
+                    <h3>Olivia</h3>
                 </div>
                 <div class="matchedProfile">
-                    <img src="" alt="MatchedProfilePicture">
-                    <h3>Profile 1</h3>
+                    <img src="/static/profilePictures/69.jpg" alt="MatchedProfilePicture">
+                    <h3>Emma</h3>
                 </div>
                 <div class="matchedProfile">
-                    <img src="" alt="MatchedProfilePicture">
-                    <h3>Profile 1</h3>
+                    <img src="/static/profilePictures/78.jpg" alt="MatchedProfilePicture">
+                    <h3>Sophia</h3>
                 </div>
             </div>
         </div>
         <div class="matchingArea">
             <div class="card">
                 <div class="firstCard">
-                    <img src="" alt="Profile Picture">
+                    <img src="/static/profilePictures/72.jpg" alt="Profile Picture" class="cardProfilePicture">
                     <div class="info">
                         <div class="nameAndAge">
-                            <h2>Emily</h2>
-                            <h2>|</h2>
-                            <h2>21</h2>
+                            <h1>Emily</h1>
+                            <h1>|</h1>
+                            <h1>21</h1>
                         </div>
                         <div class="mbtiAndAstro">
-                            <h3>INTJ</h3>
-                            <h3>|</h3>
-                            <h3>Leo</h3>
+                            <img src="/static/Images/brain.png" alt="Brain">
+                            <h4>INTJ</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                              </svg>
+                            <h4>Leo</h4>
                         </div>
                         <div class="bio">
-                            <h1>"</h1>
+                            <h1 class="open">“</h1>
                             <h2>Let's walk my dog together.</h2>
-                            <h1>"</h1>
+                            <h1 class="close">”</h1>
                         </div>
                     </div>
                 </div>
@@ -62,8 +72,38 @@
 
                 </div>
             </div>
-            <div class="rightOrLeft">
-                
+            <div class="yesOrNo">
+                <form action="">
+                    <!-- <input type="button" class="no" id="no" name="no"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle-fill no" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                      </svg>
+                    <!-- <input type="button" class="later" id="later" name="later"> -->
+                    <!-- <input type="button" class="yes" id="yes" name="yes"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle-fill yes" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                      </svg>
+                </form>
+            </div>
+        </div>
+        <div class="rightPane">
+            <h3>Looking for:</h3>
+            <div class="relVsFriend">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-heart heart" viewBox="0 0 16 16">
+                    <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-toggle2-off toggle" viewBox="0 0 16 16">
+                    <path d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z"/>
+                    <path d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-plus friend" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                  </svg>
+            </div>
+            <div class="relVsFriendText">
+                <h5>Relationship</h5>
+                <h5>Friendship</h5>
             </div>
         </div>
     </div>

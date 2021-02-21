@@ -29,32 +29,110 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-# db = SQL("sqlite:///speedtyping.db")
+db = SQL("sqlite:///hyellow.db")
 
+# SQL fill
+@app.route("/sqlFill")
+def sqlFill():
+    
+    # db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:firstName, :lastName, :email, :password)", firstName=firstName, lastName=lastName,
+    #                     email=email, password=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
+    db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (”Ali”,”Sakhirani”,”Ali.Sakhirani@gmail.com”,”tLjbSjmR2”)")
+    
+    return render_template('error.html', error="Success")
 
 # Index
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
+        
 
 
 # login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
+    # Forget any user_id
+    session.clear()
+
     if request.method == "GET":
         return render_template("login.html")
+    else:
+        # Ensure email was submitted
+        if not request.form.get("email"):
+            return render_template('error.html', error="must provide email")
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return render_template('error.html', error="must provide password")
+
+        # Query database for email
+        emails_in_database = db.execute("SELECT * FROM users WHERE LOWER(email) == LOWER(:email)",
+                          username=request.form.get("email"))
+
+        # Ensure username exists and password is correct
+        if len(emails_in_database) != 1 or not check_password_hash(emails_in_database[0]["hash"], request.form.get("password")):
+            return render_template('error.html', error="invalid email and/or password")
+
+        # Remember which user has logged in
+        session["user_id"] = emails_in_database[0]["id"]
+
+        # Redirect user to home page
+        return redirect("/swipe")
 
 
 # signup
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    if request.method == "GET":
-        return render_template("signup.html")
+    if request.method == 'GET':
+        return render_template('signup.html')
+    else:
+        # Ensure a first name was submitted
+        if not request.form.get("firstName"):
+            return render_template('error.html', error="Must provide a first name")
+        elif not request.form.get("lastName"):
+            return render_template('error.html', error="Must provide a last name")
+        elif not request.form.get("email"):
+            return render_template('error.html', error="Must provide an email address")
+        elif not request.form.get("password"):
+            return render_template('error.html', error="Must provide a password")
+        elif not request.form.get("confirmation"):
+            return render_template('error.html', error="Must confirm your password")
+
+        firstName = request.form.get("firstName")
+        lastName = request.form.get("lastName")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+            
+        if password != confirmation:
+            return render_template('error.html', error="Password doesn't match")
+
+        # Query the databse for the accounts with that email
+        emails_in_database = db.execute("SELECT email FROM users WHERE email = :email",
+                          email=email)
+
+        if len(emails_in_database) != 0:
+            return render_template('error.html', error="There is already an account with this email address")
+        else:
+            db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:firstName, :lastName, :email, :password)", firstName=firstName, lastName=lastName,
+                        email=email, password=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
+        
+        # Query database for username
+        account = db.execute("SELECT * FROM users WHERE email = :email",
+                          email=email)
+
+        # Remember which user has logged in
+        session["user_id"] = account[0]["id"]
+        
+        # Redirect user to the swipe page
+        return redirect('/swipe')
 
 
 # MBTI
-@app.route("/questionnaire/1")
-def MBTI():
+MBTI = []
+@app.route("/questionnaireMBTI/1", methods=["GET", "POST"])
+def MBTI_1():
     MBTI_questions = [
         "After a tiring weekend you recharge by being with people instead of being by yourself",
         "Instead of thinking about present details, you'd rather think of future possibilities",
@@ -62,7 +140,48 @@ def MBTI():
         "You'd rather plan your birthday compared to celebrating it spontaneously"]
     test = "MBTI"
     if request.method == "GET":
-        return render_template("questionnaireMBTI.html", questions = MBTI_questions, test = test)
+        return render_template("MBTI_1.html", questions = MBTI_questions, test = test)
+    else:
+        answer = request.form.get("answer")
+        MBTI.append(answer)
+        print(MBTI)
+        return redirect(url_for('MBTI_2')) # change this index to somewhere else
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+@app.route("/questionnaireMBTI/2", methods=["GET", "POST"])
+def MBTI_2():
+    if request.method == "GET":
+        return render_template("MBTI_2.html")
+    else:
+        answer1 = request.form.get("answer")
+        MBTI.append(answer1)
+        print(MBTI)
+        return redirect(url_for('MBTI_3')) # change this index to somewhere else
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+@app.route("/questionnaireMBTI/3", methods=["GET", "POST"])
+def MBTI_3():
+    if request.method == "GET":
+        return render_template("MBTI_3.html")
+    else:
+        answer = request.form.get("answer")
+        MBTI.append(answer)
+        print(MBTI)
+        return redirect(url_for('MBTI_4')) # change this index to somewhere else
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+@app.route("/questionnaireMBTI/4", methods=["GET", "POST"])
+def MBTI_4():
+    if request.method == "GET":
+        return render_template("MBTI_4.html")
+    else:
+        answer = request.form.get("answer")
+        MBTI.append(answer)
+        print(MBTI)
+        return redirect(url_for('index')) # change this index to somewhere else
     # add else statement if method == 'post' and return value of the personality type etc.
 
 
@@ -77,8 +196,12 @@ def acouplemorethings():
 def seehowitworks():
     return render_template("seehowitworks.html")
 
-
-
+# Swipe
+@app.route("/swipe", methods=["GET", "POST"])
+def swipe():
+    if request.method == "GET":
+        return render_template("swipe.html")
+    # Code here
 
 
 

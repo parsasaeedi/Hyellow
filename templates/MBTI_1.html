@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuestionnaireMBTI</title>
+    <link rel="stylesheet" href="../static/slider.css">
+    <link rel="stylesheet" href="../static/style_questionnaire.css">
+    <link rel="icon" href="../static/HyellowIcon.png">
+    <script>
+        function updateTextInput(val) {
+          document.getElementById('textInput').value=val;
+        }
+        function evaluate(){
+            var answers = [];
+            for (var i = 0; i < 4; i++) {
+            answers.push(document.getElementById(i.toString()).value);
+            }
+            document.getElementById('ans').value = answers;
+        }
+    </script>
+</head>
+<body>
+<form action="/questionnaireMBTI/1" method="post" id="MBTI">
+    <div class="center" id="header">
+        <h1>MBTI Test</h1>
+    </div>
+    <div class="center" id="question">
+        <h1>"After a tiring weekend you recharge by being with people instead of being by yourself"</h1>
+    </div>
+    <div class="slider">
+        <h2>Strongly Disagree</h2>
+        <input type="range" min="-100" max="100" value="0" id="textInput" name="answer" onchange="updateTextInput(this.value);">
+        <h2>Strongly Agree</h2>
+    </div>
+    <div>
+        <input type="submit" form="MBTI" value="Next Page">
+    <!--    <input type="text" name="answers" id="ans"> to retrieve data from python-->
+    </div>
+</form>
+</body>
+</html>

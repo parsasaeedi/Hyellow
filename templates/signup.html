@@ -5,33 +5,50 @@
     <title>Signup to Hyellow</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="../static/style_signup.css">
+    <link rel="icon" href="../static/HyellowIcon.png">
+    <script type="text/javascript">
+    function Validate() {
+        var password = document.getElementByName("password").value;
+        var confirmPassword = document.getElementByName("confirm_password").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+    </script>
 </head>
 <body>
-    <form action=somewhere method="post" id="login"></form>
+<!--    {% if error != None %}-->
+<!--        <div class="error"><p>{{error}}</p></div>-->
+<!--    {% endif %}-->
+    <form action=/signup method="post" id="login">
     <table>
         <tr>
             <th>Sign Up</th>
         </tr>
             <tr>
                 <td>
-                    <input type="text" name="fname" placeholder="First Name" form="login">
+                    <input type="text" name="firstName" placeholder="First Name" form="login" required>
                 </td>
                 <td>
-                    <input type="text" name="lname" placeholder="Last Name" form="login">
+                    <input type="text" name="lastName" placeholder="Last Name" form="login" required>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="email" name="email" placeholder="Email" form="login"></td>
+                <td colspan="2"><input type="email" name="email" placeholder="Email" form="login" required></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="password" name="password" placeholder="Password" form="login"></td>
+                <td colspan="2"><input type="password" name="password" placeholder="Password" form="login" minlength="8" required></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="password" name="confirm_password" placeholder="Confirm Password" form="login"></td>
+                <td colspan="2"><input type="password" name="confirmation" placeholder="Confirm Password" minlength="8" form="login" required></td>
             </tr>
-            <tr name="rsubmit">
+            <tr id="rsubmit">
+                <!-- <td colspan="2"><input type="submit" form="login" onclick="return Validate()" /></td> -->
                 <td colspan="2"><input type="submit" form="login"></td>
             </tr>
     </table>
+    </form>
 </body>
 </html>
