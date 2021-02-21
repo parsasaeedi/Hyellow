@@ -38,3 +38,15 @@ def index():
     # Write code here
     # return render_template("index.html")
     return "Hello"
+
+
+@app.route("/questionnaireMBTI")
+def questionnaire():
+    MBTI_questions = ["a", "b", "c", "d"]
+    if request.method == "GET":
+        return render_template("questionnaireMBTI.html", MBTI_questions = MBTI_questions)
+    # add else statement if method == 'post' and return value of the personality type etc.
+
+
+if __name__ == "__main__":
+    app.run()
