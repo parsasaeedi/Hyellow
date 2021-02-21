@@ -3,31 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QuestionnaireMBTI</title>
-<!--    <link rel="stylesheet" href="style_questionnaire.css">-->
+    <title>Questionnaire{{test}}</title>
+    <link rel="stylesheet" href="../static/slider.css">
     <link rel="stylesheet" href="../static/style_questionnaire.css">
 </head>
 <body>
-    <table id="container">
-        <tr><th>MBTI Test</th></tr>
-        <tr>
-            <td>
-                {%- for question in MBTI_questions -%}
-                <table>
-                    <tr><td>{{question}}</td></tr>
-                    <tr>
-                        <td>Strongly Disagree</td>
-                        <td colspan="3">
-                            <div class="slidecontainer">
-                                <input type="range" min="0" max="2" value="1" class="slider" id="myRange">
-                            </div>
-                        </td>
-                        <td>Strongly Agree</td>
-                    </tr>
-                </table>
-                {%- endfor -%}
-            </td>
-        </tr>
-    </table>
+<form action=database_somewhere method="post" id="MBTI"></form>
+<div class="center" id="header"><h1>{{test}} Test</h1></div>
+{%- for question in questions -%}
+<div class="center" id="question"><h1>{{question}}</h1></div>
+<div class="slider">
+    <h2>Strongly Disagree</h2>
+    <input type="range" min="-1" max="1" value="0" id="myRange">
+    <h2>Strongly Agree</h2>
+</div>
+{%- endfor -%}
+<div>
+    <input type="submit" form="MBTI" value="Next Page">
+</div>
 </body>
 </html>
