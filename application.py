@@ -37,7 +37,7 @@ def sqlFill():
     
     # db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (:firstName, :lastName, :email, :password)", firstName=firstName, lastName=lastName,
     #                     email=email, password=generate_password_hash(password, method='pbkdf2:sha256', salt_length=8))
-    db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (”Ali”,”Sakhirani”,”Ali.Sakhirani@gmail.com”,”tLjbSjmR2”")
+    db.execute("INSERT INTO users (firstName, lastName, email, password) VALUES (”Ali”,”Sakhirani”,”Ali.Sakhirani@gmail.com”,”tLjbSjmR2”)")
     
     return render_template('error.html', error="Success")
 

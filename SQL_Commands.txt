@@ -3,13 +3,13 @@ CREATE TABLE 'users' (
     'firstName' TEXT NOT NULL,
     'lastName' TEXT NOT NULL,
     'email' TEXT NOT NULL,
-    'password' TEXT NOT NULL,
+    'password' TEXT NOT NULL
 );
 
 CREATE TABLE 'attributes' (
     'id' INTEGER NOT NULL,
     'age' INTEGER,
-    'birthday' DATE
+    'birthday' DATE,
     'sex' TEXT,
     'sexuallity' TEXT,
     'city' TEXT,

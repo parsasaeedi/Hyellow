@@ -22,17 +22,21 @@
 </head>
 <body>
 <form action="/questionnaireMBTI/2" method="post" id="MBTI">
-<div class="center" id="header"><h1>MBTI Test</h1></div>
-<div class="center" id="question"><h1>"Instead of thinking about present details, you'd rather think of future possibilities"</h1></div>
-<div class="slider">
-    <h2>Strongly Disagree</h2>
-    <input type="range" min="-1" max="1" value="0" id="textInput" name="answer" onchange="updateTextInput(this.value);">
-    <h2>Strongly Agree</h2>
-</div>
-<div>
-    <input type="submit" form="MBTI" value="Next Page">
-<!--    <input type="text" name="answers" id="ans"> to retrieve data from python-->
-</div>
+    <div class="center" id="header">
+        <h1>MBTI Test</h1>
+    </div>
+    <div class="center" id="question">
+        <h1>"Instead of thinking about present details, you'd rather think of future possibilities"</h1>
+    </div>
+    <div class="slider">
+        <h2>Strongly Disagree</h2>
+        <input type="range" min="-100" max="100" value="0" id="textInput" name="answer" onchange="updateTextInput(this.value);">
+        <h2>Strongly Agree</h2>
+    </div>
+    <div>
+        <input type="submit" form="MBTI" value="Next Page">
+    <!--    <input type="text" name="answers" id="ans"> to retrieve data from python-->
+    </div>
 </form>
 </body>
 </html>
