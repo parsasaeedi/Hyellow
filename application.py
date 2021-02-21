@@ -68,13 +68,13 @@ def MBTI():
 
 # acouplemorethings
 @app.route("/acouplemorethings")
-def signup():
+def acouplemorethings():
     return render_template("acouplemorethings.html")
 
 
 # seehowitworks
 @app.route("/seehowitworks")
-def signup():
+def seehowitworks():
     return render_template("seehowitworks.html")
 
 
