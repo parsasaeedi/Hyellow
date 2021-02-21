@@ -5,51 +5,91 @@
     font-size: 25px; margin-left: 50px; margin-right: 50;">
         <link rel="stylesheet" href="../static/style_signup.css">
         <h1 style="font-size: 50px; font-weight: bold";>
-            <b>A Couple More Things</b>
+            <center><b>A Couple More Things</b></center>
         </h1> 
         <h3>
-            Tell us a little bit more about you.
+            <center>Tell us a little bit more about you.</center>
         </h3>
         <form action=chooselocation method="post" id="traits"></form>
+        <style>
+            table{
+            margin: 0 auto;
+            width: 90%;
+            margin-top: 6.4vw;
+            margin-bottom: 5.5vw;
+        }
+        
+        td{
+            text-align: left;
+            vertical-align: center;
+            color: #EBEBEB;
+            border-collapse: collapse;
+            padding: 1%;
+        }
+        input, textarea{
+            width: 90%;
+            padding: 1.2vw 1.4vw;
+            margin-bottom: 1.5vw;
+            margin-right: 5px;
+            margin-top: 1%;
+            box-sizing: border-box;
+            background-color: #343232;
+            color: #EBEBEB;
+            border-style: none;
+            border-radius: 50px;
+}
+            input[type=submit]{
+            margin-top: 10px;
+            margin-left: 53%;
+            margin-bottom: 30%;
+            width: 40%;
+            font-size: 1.5vw;
+                            }
+            input[type=submit]:hover{
+            background-color: #f8bb3f;
+            color: #7D7878;
+                                }
+            
+        </style>
         <table>
             
                 <tr>
                     <tr>
                     <td>
-                        Education <input type="text" name="education" form="traits">
+                        &nbsp; Education <input type="text" name="education" form="traits">
                     </td>
                     <td>
-                        School <input type="text" name="school" form="traits">
+                        &nbsp;&nbsp;School <input type="text" name="school" form="traits">
                     </td>
                     <td>
-                        Major <input type="text" name="education" form="traits">
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>
-                        Job ; <input type="text" name="school" form="traits">
-                    </td>
-                    <td>
-                        Height <input type="text" name="education" form="traits">
-                    </td>
-                    <td>
-                        Body Type <input type="text" name="school" form="traits">
+                        &nbsp;&nbsp;Major <input type="text" name="education" form="traits">
                     </td>
                     </tr>
                     <tr>
                     <td>
-                        Ethnicity <input type="text" name="education" form="traits">
+                        &nbsp; &nbsp;Job <input type="text" name="school" form="traits">
                     </td>
                     <td>
-                        Religion <input type="text" name="school" form="traits">
+                        &nbsp; Height <input type="text" name="education" form="traits">
                     </td>
                     <td>
-                        Political View <input type="text" name="education" form="traits">
+                        &nbsp; Body Type <input type="text" name="school" form="traits">
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                        &nbsp;&nbsp;Ethnicity <input type="text" name="education" form="traits">
+                    </td>
+                    <td>
+                         &nbsp; Religion <input type="text" name="school" form="traits">
+                    </td>
+                    <td>
+                        &nbsp; Political View <input type="text" name="education" form="traits">
                     </td>
                     </tr>
                 </tr>
                 <tr name="rsubmit">
-                    <td colspan="2"><input type="submit" form="login"></td>
+                    <td colspan="2"><center><input type="submit" form="login"></center></td>
                 </tr>
         </table>
         
