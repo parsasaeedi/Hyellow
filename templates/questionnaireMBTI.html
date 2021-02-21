@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuestionnaireMBTI</title>
+<!--    <link rel="stylesheet" href="style_questionnaire.css">-->
+    <style>
+        body{
+            background-color: #111111;
+        }
+    </style>
+</head>
+<body>
+    <table id="container">
+        <tr><th>MBTI Test</th></tr>
+        <tr>
+            <td>
+                {%- for question in MBTI_questions -%}
+                <table>
+                    <tr><td>{{question}}</td></tr>
+                    <tr>
+                        <td>Strongly Disagree</td>
+                        <td colspan="3">
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="2" value="1" class="slider" id="myRange">
+                            </div>
+                        </td>
+                        <td>Strongly Agree</td>
+                    </tr>
+                </table>
+                {%- endfor -%}
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
