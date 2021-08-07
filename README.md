@@ -1,5 +1,8 @@
 # Hyellow
 
+![Screenshot1](Screenshot1.jpg)
+![Screenshot2](Screenshot2.jpg)
+
 [DevPost Link](https://devpost.com/software/hyellow-the-connection-making-app)
 
 ## Our Inspiration✨ 
@@ -55,3 +58,4 @@ There are **NUMEROUS** features we thought of during the brainstorming phase tha
 4. A gamer mode where gamers can be matched based on their favorite games
 5. Sharing your location with a close friend while on a date to stay safe
 
+![Screenshot3](Screenshot3.jpg)
