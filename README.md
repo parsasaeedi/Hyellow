@@ -1,5 +1,7 @@
 # Hyellow
 
+[DevPost Link](https://devpost.com/software/hyellow-the-connection-making-app)
+
 ## Our Inspiration✨ 
 
 We were all longing for human connection during quarantine while also coping with the loss of many connections due to COVID. **This was the main inspiration behind *‘Hyellow’*.** We wanted to make it as inclusive as possible and also interactive and fun, so during our brainstorming sessions we came up with the wildest ideas and hoped to bring them to life.
